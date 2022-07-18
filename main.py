@@ -70,7 +70,7 @@ parser.add_argument('-l', '--loglevel', default='warning',
 parser.add_argument('-c', '--config', default="config.yml", type=argparse.FileType('r', encoding='UTF-8'))
 args = parser.parse_args()
 
-logging.basicConfig(level='DEBUG', stream=sys.stderr)
+logging.basicConfig(format='%(levelname)s: %(message)s', level=args.loglevel.upper(), stream=sys.stderr)
 
 bibtex = load_bibtex(args.config)
 
